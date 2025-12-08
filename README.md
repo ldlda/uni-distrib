@@ -11,4 +11,4 @@ Student Info
 
 * Student Name: Lương Đức Anh
 * Student ID: 23BI14021
-* Student Group ID: N/A
+* Student Group ID: 11
