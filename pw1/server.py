@@ -84,7 +84,9 @@ try:
 
             file_new = os.path.normpath(file_name)
             print(f"file {file_name} i meant {file_new} is Being Made")
-            Path(file_new).write_bytes(file_content)
+            p = Path(file_new)
+            sz = p.write_bytes(file_content)
+            print(f"written {sz} bytes to {p.as_posix()}")
 except KeyboardInterrupt:
     print("\nServer stopping...")
 finally:

@@ -1,7 +1,9 @@
 import atexit
+from collections.abc import Sequence
 import signal
 import sys
 import traceback
+from typing import Any
 
 type Host = str
 type Port = int
@@ -29,3 +31,11 @@ def setup_debug_handlers():
     atexit.register(lambda: print("Program exiting."))
     signal.signal(signal.SIGTERM, dump_trace)
     signal.signal(signal.SIGINT, dump_trace)
+
+def list_indexing[T](
+    seq: Sequence[T], index: int, default: T | Any | None = None
+) -> T | Any | None:
+    try:
+        return seq[index]
+    except IndexError:
+        return default

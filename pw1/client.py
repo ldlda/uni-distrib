@@ -2,11 +2,17 @@ import base64
 import os
 import socket
 import sys
-from collections.abc import Sequence
 from pathlib import Path
-from typing import Any
 
-from common import FILE_NAME, FILE_SIZE, HOST, PORT, SEP, setup_debug_handlers
+from common import (
+    FILE_NAME,
+    FILE_SIZE,
+    HOST,
+    PORT,
+    SEP,
+    list_indexing,
+    setup_debug_handlers,
+)
 
 setup_debug_handlers()
 
@@ -26,7 +32,7 @@ def send(client: socket.socket, file: Path, name: str | None) -> tuple[str, int]
     return name, fz
 
 
-def shit(client: socket.socket, file: Path) -> tuple[str, int]:
+def shit(client: socket.socket) -> tuple[str, int]:
     thing = client.makefile("rb")
     a = thing.readline()
     if a.startswith(FILE_NAME):
@@ -45,21 +51,12 @@ def shit(client: socket.socket, file: Path) -> tuple[str, int]:
     return fn, fz
 
 
-def list_indexing[T](
-    seq: Sequence[T], index: int, default: T | Any | None = None
-) -> T | Any | None:
-    try:
-        return seq[index]
-    except IndexError:
-        return default
-
-
 fn = Path(list_indexing(sys.argv, 1) or input("file name pls: "))
 if fn.is_file():
     n = list_indexing(sys.argv, 2) or input("name of sent file pls: ")
     print(f"file {fn} as {n} sending")
     nn, fz = send(client, fn, n if n else None)
-    rn, rfz = shit(client, fn)
+    rn, rfz = shit(client)
     print(f"new file {nn} sent with {fz} bytes, received {rfz} bytes as {rn}")
 else:
     print(f"wtf is {fn}")
