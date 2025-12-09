@@ -1,0 +1,1 @@
+import re; import sys; from collections import Counter; from pathlib import Path; from pprint import pprint; pprint(Counter(r for r in re.split(r"\W+", Path(sys.argv[1]).read_text("utf-8")) if r.strip()))

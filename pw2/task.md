@@ -21,12 +21,9 @@ lowk
 flowchart LR
   IDL --> RPCC([RPC Compiler]) 
   CF[Client Functions] --> CC --> Client
-  RPCC --> CS[Client Stub] --> CC
-  RPCC --> DS(Data Conversion) --> CC
-  RPCC --> H[Headers] --> CC([Compiler])
-  RPCC --> DC2[Data Conversion] --> CC2
-  RPCC --> S[Server skeleton] --> CC2
-  H --> CC2([Compiler])
+  RPCC --> CS[Client Stub] & DS(Data Conversion) --> CC
+  RPCC --> H[Headers] --> CC([Compiler]) & CC2([Compiler])
+  RPCC --> DC2[Data Conversion] & S[Server skeleton] --> CC2
   SF[Server Functions] --> CC2 --> Server
 ```
 

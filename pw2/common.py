@@ -1,5 +1,5 @@
 from collections.abc import Sequence
-from typing import Any, Protocol, overload, override
+from typing import Any, Protocol, overload
 
 HOST = "127.0.0.1"
 PORT = 9870

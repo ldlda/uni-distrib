@@ -1,9 +1,8 @@
 import atexit
-from collections.abc import Sequence
 import signal
 import sys
 import traceback
-from typing import Any
+from typing import Any, Sequence
 
 type Host = str
 type Port = int
@@ -21,6 +20,7 @@ SEP = b"\n"
 # server: FILE file name b64 SEP SIZE no of bytes SEP SEP
 # http ahhhhhhhhhhhhh
 
+
 def dump_trace(signum, frame):
     print(f"\nSignal {signum} received. Stack trace:")
     traceback.print_stack(frame)
@@ -31,6 +31,7 @@ def setup_debug_handlers():
     atexit.register(lambda: print("Program exiting."))
     signal.signal(signal.SIGTERM, dump_trace)
     signal.signal(signal.SIGINT, dump_trace)
+
 
 def list_indexing[T](
     seq: Sequence[T], index: int, default: T | Any | None = None

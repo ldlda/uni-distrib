@@ -1,14 +1,12 @@
-USTH 2026: DISTRIBUTED SYSTEM
-=====================================================
+# USTH 2026: DISTRIBUTED SYSTEM
 
 Students are expected to:
-* Fork this repository to your github account.
-* Push your commits regularly, with proper commit message.
 
+- Fork this repository to your github account.
+- Push your commits regularly, with proper commit message.
 
-Student Info
-=========================
+## Student Info
 
-* Student Name: Lương Đức Anh
-* Student ID: 23BI14021
-* Student Group ID: 11
+- Student Name: Lương Đức Anh
+- Student ID: 23BI14021
+- Student Group ID: 11

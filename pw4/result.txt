@@ -1,0 +1,19 @@
+Counter({'swiss': 5,
+         'witch': 4,
+         'which': 4,
+         'watch': 4,
+         'to': 3,
+         'three': 2,
+         'bitches': 2,
+         'be': 2,
+         'switched': 2,
+         'swatch': 2,
+         'bitch': 2,
+         'wishes': 2,
+         'wished': 1,
+         'switches': 1,
+         'a': 1,
+         'switch': 1})
+
+// generated with
+python .\pw4\map_reduce.py .\pw4\fuckass.txt > pw4/result.txt
