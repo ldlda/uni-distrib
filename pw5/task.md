@@ -17,6 +17,8 @@ LongestPath toy project
 
 in fact do `find / >> file.txt` to archive it + use the result!
 
+// i need some more commands here that fills up peoples disk in 3 seconds. `cat /dev/urandom | base64 >> code.txt` maybe
+
 ## WHAT EVEN IS longest path
 
 is it the most nodes to go from a file to another?
@@ -28,3 +30,9 @@ like
 ```
 
 or is it just pure `len()`?
+
+## this requires me to split this up
+
+one part will bundle the streams into parts. that seems to be an easy task.
+one part will take those streams and process it. multiprocessing.
+one part will merge those results.
