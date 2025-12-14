@@ -22,3 +22,5 @@ wait USING SOCKET
 who is socket
 
 im not using socket
+
+nawgh socket means tcp or udp and not necessarily socket itself FUH i been socketting

@@ -7,6 +7,11 @@ from typing import Any
 from mpi4py import MPI  # pylint: disable=E0611
 
 
+comm = MPI.COMM_WORLD
+size = comm.Get_size()
+assert size >= 2
+
+
 def list_indexing[T](
     seq: Sequence[T], index: int, default: T | Any | None = None
 ) -> T | Any | None:
@@ -14,10 +19,6 @@ def list_indexing[T](
         return seq[index]
     except IndexError:
         return default
-
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
 
 
 def send_file():
@@ -36,6 +37,7 @@ def recv_file():
     print(f"written {f.as_posix()}: {sz} bytes")
 
 
+rank = comm.Get_rank()
 if rank == 0:
     send_file()
 else:
